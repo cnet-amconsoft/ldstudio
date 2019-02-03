@@ -1,0 +1,6 @@
+C:\Users\ams11\Google Диск\LDS\LDStudio\DaL\bin\Debug\netcoreapp2.0\DaL.deps.json
+C:\Users\ams11\Google Диск\LDS\LDStudio\DaL\bin\Debug\netcoreapp2.0\DaL.dll
+C:\Users\ams11\Google Диск\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.csprojAssemblyReference.cache
+C:\Users\ams11\Google Диск\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.csproj.CoreCompileInputs.cache
+C:\Users\ams11\Google Диск\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.AssemblyInfoInputs.cache
+C:\Users\ams11\Google Диск\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.AssemblyInfo.cs
