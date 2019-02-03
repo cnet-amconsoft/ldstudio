@@ -4,3 +4,15 @@ C:\Users\ams11\Google Диск\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.cspr
 C:\Users\ams11\Google Диск\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.csproj.CoreCompileInputs.cache
 C:\Users\ams11\Google Диск\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.AssemblyInfoInputs.cache
 C:\Users\ams11\Google Диск\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.AssemblyInfo.cs
+E:\ASP.Net\LDS\LDStudio\DaL\bin\Debug\netcoreapp2.0\DaL.deps.json
+E:\ASP.Net\LDS\LDStudio\DaL\bin\Debug\netcoreapp2.0\DaL.dll
+E:\ASP.Net\LDS\LDStudio\DaL\bin\Debug\netcoreapp2.0\DaL.pdb
+E:\ASP.Net\LDS\LDStudio\DaL\bin\Debug\netcoreapp2.0\Core.dll
+E:\ASP.Net\LDS\LDStudio\DaL\bin\Debug\netcoreapp2.0\Core.pdb
+E:\ASP.Net\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.csprojAssemblyReference.cache
+E:\ASP.Net\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.csproj.CoreCompileInputs.cache
+E:\ASP.Net\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.AssemblyInfoInputs.cache
+E:\ASP.Net\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.AssemblyInfo.cs
+E:\ASP.Net\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.csproj.CopyComplete
+E:\ASP.Net\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.dll
+E:\ASP.Net\LDS\LDStudio\DaL\obj\Debug\netcoreapp2.0\DaL.pdb
