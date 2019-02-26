@@ -16,4 +16,8 @@
     <ProjectReference Include="..\DaL\DaL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
