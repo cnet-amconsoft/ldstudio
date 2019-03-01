@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {object} from 'prop-types';
+
+import * as Social from './SocialIcons';
 import { withStyles } from '@material-ui/core/styles';
-import red from '@material-ui/core/colors/red';
-import blue from '@material-ui/core/colors/blue';
-import SvgIcon from '@material-ui/core/SvgIcon';
+
+
 
 const styles = theme => ({
     root: {
@@ -12,38 +13,36 @@ const styles = theme => ({
         alignItems: 'flex-end',
     },
     icon: {
-        margin: theme.spacing.unit * 2,
-    },
-    iconHover: {
-        margin: theme.spacing.unit * 2,
-        '&:hover': {
-            color: red[800],
-        },
-    },
+        cursor: 'pointer',
+        height: theme.spacing.unit * 4,
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+        padding: '.1rem',
+        width: theme.spacing.unit * 4,
+    }
 });
 
-function NavLink(props) {
-    return (
-        <SvgIcon {...props}>
-            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-        </SvgIcon>
-    );
-}
+class SvgIcons extends Component {
+    static propTypes = {
+        classes: object.isRequired,
+    };
 
-function SvgIcons(props) {
-    const { classes } = props;
-    return (
-        <div className={classes.root}>
-            <NavLink className={classes.icon} />
-            <NavLink className={classes.icon} />
-            <NavLink className={classes.icon} />
-            <NavLink className={classes.icon} />
-        </div>
-    );
-}
+    componentDidMount() {
+        for (let child of this.iconContainer.children) {
+            child.classList.add(this.props.classes.icon)
+        }
+    }
 
-SvgIcons.propTypes = {
-    classes: object.isRequired,
-};
+    render() {
+        const {classes} = this.props;
+        return (
+            <div className={classes.root} ref={node => this.iconContainer = node}>
+                <Social.Insta />
+                <Social.Facebook />
+                <Social.YouTube />
+            </div>
+        );
+    }
+}
 
 export default withStyles(styles)(SvgIcons);
