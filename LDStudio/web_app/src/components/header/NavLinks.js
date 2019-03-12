@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {object} from 'prop-types';
 
-import * as Social from './SocialIcons';
+import SocialContainer, {Facebook, Insta, YouTube} from './SocialIcons';
 import { withStyles } from '@material-ui/core/styles';
 
 
@@ -14,11 +14,9 @@ const styles = theme => ({
     },
     icon: {
         cursor: 'pointer',
-        height: theme.spacing.unit * 4,
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
         padding: '.1rem',
-        width: theme.spacing.unit * 4,
     }
 });
 
@@ -37,9 +35,11 @@ class SvgIcons extends Component {
         const {classes} = this.props;
         return (
             <div className={classes.root} ref={node => this.iconContainer = node}>
-                <Social.Insta />
-                <Social.Facebook />
-                <Social.YouTube />
+                <SocialContainer>
+                    <Insta href='insta' />
+                    <Facebook href="facebook" />
+                    <YouTube href="#" />
+                </SocialContainer>
             </div>
         );
     }
