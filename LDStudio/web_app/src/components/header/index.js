@@ -28,7 +28,7 @@ function Header(props) {
                     >
                         <Grid container justify="space-between" alignItems="center">
                             <Grid item >
-                                <Logo/>
+                                <Logo href='/' />
                             </Grid>
                             <Grid item >
                                 <NavLinks/>

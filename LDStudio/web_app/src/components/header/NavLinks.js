@@ -14,9 +14,12 @@ const styles = theme => ({
     },
     icon: {
         cursor: 'pointer',
+        display: 'block',
+        height: '1.8rem',
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
         padding: '.1rem',
+        width: '1.8rem',
     }
 });
 
@@ -26,7 +29,7 @@ class SvgIcons extends Component {
     };
 
     componentDidMount() {
-        for (let child of this.iconContainer.children) {
+        for (let child of this.iconContainer.querySelectorAll('svg')) {
             child.classList.add(this.props.classes.icon)
         }
     }

@@ -26,10 +26,6 @@
 .App-link {
   color: #61dafb;
 }
-.Social-icon {
-  display: block !important;
-  font-size: 2rem !important;
-}
 
 @keyframes App-logo-spin {
   from {
