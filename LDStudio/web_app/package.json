@@ -1,14 +1,18 @@
 {
-  "name": "web_app",
+  "name": "lds_app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "react-scripts": "2.1.5",
-    "prop-types": "latest"
+    "@material-ui/styles": "^3.0.0-alpha.10",
+    "core-js": "3",
+    "prop-types": "latest",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.2",
+    "react-scripts": "^2.1.8",
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,11 +32,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@storybook/react": "^4.1.13",
+    "@babel/core": "^7.3.3",
     "@storybook/addon-actions": "^4.1.13",
     "@storybook/addon-links": "^4.1.13",
     "@storybook/addons": "^4.1.13",
-    "@babel/core": "^7.3.3",
+    "@storybook/react": "^4.1.13",
     "babel-loader": "^8.0.5"
   }
 }

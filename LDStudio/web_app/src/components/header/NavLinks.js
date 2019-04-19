@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {object} from 'prop-types';
 
-import SocialContainer, {Facebook, Insta, YouTube} from './SocialIcons';
+import SocialContainer from './SocialContainer'
+import {Facebook, Insta, YouTube} from './SocialIcons';
 import { withStyles } from '@material-ui/core/styles';
 
 
