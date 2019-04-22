@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import { withStyles } from '@material-ui/styles';
+import React, {Component}   from 'react';
+import PropTypes from 'prop-types'
+import { withStyles }       from '@material-ui/styles';
 
-import * as Behavior from './backgroundBehavior';
-import BackgroundElement from './BackgroundElement';
+import BackgroundElement    from './BackgroundElement';
 
 const styles = {
     root: {
@@ -13,22 +13,24 @@ const styles = {
     }
 };
 
-class BackgroundContainer extends Component {
-
-    state = {
-        isActive1: false,
-        isActive2: false,
+class BackgroundComponent extends Component {
+    static propTypes = {
+        activeBackground:   PropTypes.string.isRequired,
+        orderOfBackgrounds: PropTypes.arrayOf(PropTypes.string).isRequired,
+        classes:            PropTypes.object.isRequired,
     };
 
     render() {
-        const {classes} = this.props;
+        const {classes, orderOfBackgrounds} = this.props;
+
         return (
             <div className={classes.root}>
-                <BackgroundElement background={'#000000'} visible={this.state.isActive1} />
-                <BackgroundElement background={'grey'} visible={this.state.isActive2} />
+                {orderOfBackgrounds.map(background => (
+                    <BackgroundElement  background={background} visible />
+                ))}
             </div>
-        )
+        );
     }
 }
 
-export default withStyles(styles)(BackgroundContainer)
+export default withStyles(styles)(BackgroundComponent)

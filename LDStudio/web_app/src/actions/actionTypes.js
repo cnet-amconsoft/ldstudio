@@ -1,0 +1,4 @@
+// Action types
+
+export const CHANGE_BACKGROUND = 'CHANGE_BACKGROUND';
+export const SET_BACKGROUND_ORDER = 'SET_BACKGROUND_ORDER';

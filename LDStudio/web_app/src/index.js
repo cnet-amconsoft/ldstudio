@@ -10,7 +10,12 @@ import rootReducer from './reducers';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 
-const store = createStore(rootReducer);
+const initStore = {
+    activeBackground: 'bcg--0',
+    order: ['#000000',],
+};
+
+const store = createStore(rootReducer, initStore);
 
 ReactDOM.render(
     <Provider store={store}>

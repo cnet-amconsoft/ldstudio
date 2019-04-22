@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Background from './background';
+import Background from '../containers/BackgroundContainer';
 import Header from './header';
 
 export default class App extends Component {
