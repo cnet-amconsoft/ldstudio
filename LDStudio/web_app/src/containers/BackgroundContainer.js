@@ -2,6 +2,7 @@ import {connect} from "react-redux";
 
 import BackgroundComponent from './../components/background';
 import * as actions from './../actions'
+import backgroundReducer from "../reducers/backgroundReducer";
 
 const preloadImage = (arrayOfUrl) => {
     for (let url of arrayOfUrl) {
@@ -11,8 +12,7 @@ const preloadImage = (arrayOfUrl) => {
 };
 
 const mapStateToProps = (state) => ({
-    activeBackground:   state.activeBackground,
-    orderOfBackgrounds: state.order,
+    backgroundList: state.listOfBackgrounds,
 });
 // const mapDispatchToProps = (dispatch) => ({
 //     changeBackground: (nextBackground) => dispatch(actions.changeBackground(nextBackground))

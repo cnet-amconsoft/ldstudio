@@ -16,17 +16,17 @@ const styles = {
 class BackgroundComponent extends Component {
     static propTypes = {
         activeBackground:   PropTypes.string.isRequired,
-        orderOfBackgrounds: PropTypes.arrayOf(PropTypes.string).isRequired,
+        backgroundList: PropTypes.arrayOf(PropTypes.string).isRequired,
         classes:            PropTypes.object.isRequired,
     };
 
     render() {
-        const {classes, orderOfBackgrounds} = this.props;
+        const {classes, backgroundList} = this.props;
 
         return (
             <div className={classes.root}>
-                {orderOfBackgrounds.map(background => (
-                    <BackgroundElement  background={background} visible />
+                {backgroundList.map(background => (
+                    <BackgroundElement  background={background.value} key={background.id} visible={background.isVisible} />
                 ))}
             </div>
         );

@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import * as backgroundReducers from "./backgroundReducer";
+import listOfBackgrounds from "./backgroundReducer";
 
 const rootReducer = combineReducers({
-    ...backgroundReducers,
+    listOfBackgrounds,
 });
 
 export default rootReducer;

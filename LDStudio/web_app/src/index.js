@@ -9,10 +9,10 @@ import App from './components/App';
 import rootReducer from './reducers';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
+import backgroundReducer from "./reducers/backgroundReducer";
 
 const initStore = {
-    activeBackground: 'bcg--0',
-    order: ['#000000',],
+    listOfBackgrounds: [{id:'bcg--0',value: '#000000', isVisible: true},{id:'bcg--1',value: '#1619bc', isVisible: false},],
 };
 
 const store = createStore(rootReducer, initStore);

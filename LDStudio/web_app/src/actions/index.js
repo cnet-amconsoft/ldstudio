@@ -1,11 +1,17 @@
 import * as types from './../actions/actionTypes'
 
-export const changeBackground = (activeElement) => ({
-    type: types.CHANGE_BACKGROUND,
-    activeElement,
+
+export const addBackground = (backgroundObject) => ({
+    type: types.ADD_BACKGROUND,
+    backgroundObject,
 });
 
-export const setBackgroundOrder = (orderArray) => ({
-    type: types.SET_BACKGROUND_ORDER,
-    orderArray,
+export const removeBackgeound = (id) => ({
+    type: types.REMOVE_BACKGROUND,
+    id,
+});
+
+export const toggleBacground = (nextBackgroundId) => ({
+    type: types.TOGGLE_BACKGROUND,
+    nextBackgroundId
 });
