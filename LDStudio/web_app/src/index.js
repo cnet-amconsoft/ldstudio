@@ -1,21 +1,14 @@
-import './bootstrap';
+import 'extensions/bootstrap';
+import 'babel-polyfill';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
+import * as serviceWorker from 'extensions/serviceWorker';
 import App from './components/App';
-import rootReducer from './reducers';
-import * as serviceWorker from './serviceWorker';
+import store from "extensions/createStore";
 import './index.css';
-import backgroundReducer from "./reducers/backgroundReducer";
-
-const initStore = {
-    listOfBackgrounds: [{id:'bcg--0',value: '#000000', isVisible: true},{id:'bcg--1',value: '#1619bc', isVisible: false},],
-};
-
-const store = createStore(rootReducer, initStore);
 
 ReactDOM.render(
     <Provider store={store}>
