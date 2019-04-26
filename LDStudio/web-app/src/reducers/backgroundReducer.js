@@ -14,11 +14,22 @@ export function isChanging (state=false, action) {
     }
 }
 
+export function listOfBackgrounds (state=[], action) {
+    switch (action.type) {
+
+        case types.SET_BACKGROUND_LIST:
+            return action.backgrounds;
+
+        default:
+            return state;
+    }
+}
+
 export function orderOfBackgrounds (state=[], action) {
     switch (action.type) {
 
         case types.ADD_BACKGROUND:
-            return Object.assign(...state, action.backgroundObject, {isVisible: false});
+            return [...state, {...action.backgroundObject, isVisible:false}];
 
         case types.REMOVE_BACKGROUND:
             return state.filter(item => item.id !== action.id );
@@ -28,19 +39,8 @@ export function orderOfBackgrounds (state=[], action) {
                 if (item.id === action.nextBackgroundId) {
                     item.isVisible = true;
                 }
-                return item.isVisible;
+                return item;
             });
-
-        default:
-            return state;
-    }
-}
-
-export function listOfBackgrounds (state=[], action) {
-    switch (action.type) {
-
-        case types.SET_BACKGROUND_LIST:
-            return [...action.backgrounds];
 
         default:
             return state;

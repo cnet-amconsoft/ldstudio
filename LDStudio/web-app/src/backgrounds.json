@@ -1,14 +1,30 @@
 [
   {
+    "id": "bcg--0",
+    "value": "#000000"
+  },
+  {
+    "id": "bcg--1",
+    "value": "#ffffff"
+  },
+  {
     "id": "bcg--2",
-    "payload": "#42f46b"
+    "value": "#42f46b"
   },
   {
     "id": "bcg--3",
-    "payload": "#f441bb"
+    "value": "#f441bb"
   },
   {
     "id": "bcg--4",
-    "payload": "#19e5e2"
+    "value": "#19e5e2"
+  },
+  {
+    "id": "bcg--5",
+    "value": "#9bf442"
+  },
+  {
+    "id": "bcg--6",
+    "value": "#f44141"
   }
 ]

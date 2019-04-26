@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 
-
 import Background from '../containers/BackgroundContainer';
 import Button from '@material-ui/core/Button';
 import Header from './header';
-import {fetchBackgrounds} from 'actions/backgroundActions'
+import {backgroundRefresh} from 'containers/BackgroundContainer'
 import {styled} from "@material-ui/styles";
-import {connect} from "react-redux";
+import bcg from 'backgrounds.json';
 
 export class App extends Component {
 
@@ -15,7 +14,9 @@ export class App extends Component {
             <div>
                 <Background />
                 <Header/>
-                <MyButton onClick={this.props.getBackgrounds}>change background</MyButton>
+                {bcg.map(i => (
+                    <MyButton onClick={() => backgroundRefresh(i.id)} style={{background: i.value}}>{i.id}</MyButton>
+                ))}
             </div>
         )
     }
@@ -23,10 +24,10 @@ export class App extends Component {
 
 const MyButton = styled(Button)({
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    border: '1px solid #5c5c5c',
     color: '#ffffff !important',
     height: 48,
 });
 
-const mapDispatchToProps = dispatch => ({getBackgrounds: () => dispatch(fetchBackgrounds())});
 
-export default connect(null, mapDispatchToProps)(App)
+export default App;

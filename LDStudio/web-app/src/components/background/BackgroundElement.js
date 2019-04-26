@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {string, bool} from "prop-types";
 import { makeStyles } from '@material-ui/styles';
+import {backgroundAnimationDuration} from 'config'
 
 const useStyles = makeStyles({
     root: {
@@ -8,7 +9,8 @@ const useStyles = makeStyles({
         opacity: 0,
         position: 'absolute',
         top: 0,
-        transition: 'opacity .3s',
+        transitionDuration: `${backgroundAnimationDuration}ms`,
+        transitionProperty: 'opacity',
         width: '100%',
     },
     active: {

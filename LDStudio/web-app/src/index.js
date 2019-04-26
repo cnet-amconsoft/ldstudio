@@ -3,12 +3,15 @@ import 'babel-polyfill';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {fetchBackgrounds} from 'actions/backgroundActions';
 import { Provider } from 'react-redux';
 
 import * as serviceWorker from 'extensions/serviceWorker';
 import App from './components/App';
 import store from "extensions/createStore";
 import './index.css';
+
+store.dispatch(fetchBackgrounds());
 
 ReactDOM.render(
     <Provider store={store}>

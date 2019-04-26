@@ -1,4 +1,6 @@
-import * as types from './../actions/actionTypes'
+import * as types   from './../actions/actionTypes';
+import delay        from 'lodash/delay';
+import {backgroundAnimationDuration} from 'config';
 
 /*====== Background order actions ======*/
 
@@ -36,7 +38,7 @@ export const startChange = () => ({
 
 /*====== Action creators ======*/
 
-export const fetchBackgrounds = () => (dispatch, getState) => (
+export const fetchBackgrounds = () => (dispatch) => (
     new Promise((resolve) => {
         resolve(require('backgrounds.json'));
     }).then(
@@ -44,6 +46,17 @@ export const fetchBackgrounds = () => (dispatch, getState) => (
         (error) => console.log(error)
     )
 );
+
+export const startRefresh = (backgroundObject) => (dispatch) => {
+    dispatch(startChange());
+    dispatch(addBackground(backgroundObject));
+};
+
+export const endRefresh = (nextId, currentId) => (dispatch) => {
+    dispatch(endChange());
+    dispatch(toggleBackground(nextId));
+    delay(() => dispatch(removeBackground(currentId)), backgroundAnimationDuration)
+};
 
 
 
