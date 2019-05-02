@@ -14,10 +14,16 @@ export const backgroundRefresh = (nextBackgroundId) => {
 };
 
 const getIdOrder = () => {
-    const state = store.getState(),
-          currentId = state.orderOfBackgrounds[0].id,
-          nextId = state.orderOfBackgrounds[1].id;
-    return [nextId, currentId];
+    const state = store.getState();
+
+    if (state.orderOfBackgrounds.length > 1) {
+        const currentId = state.orderOfBackgrounds[0].id,
+              nextId = state.orderOfBackgrounds[1].id;
+
+        return [currentId, nextId];
+    }
+    return [null, null]
+
 };
 
 const mapStateToProps = (state) => ({

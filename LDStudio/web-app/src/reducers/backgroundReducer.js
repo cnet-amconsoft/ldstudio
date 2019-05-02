@@ -29,7 +29,12 @@ export function orderOfBackgrounds (state=[], action) {
     switch (action.type) {
 
         case types.ADD_BACKGROUND:
-            return [...state, {...action.backgroundObject, isVisible:false}];
+            if (state.find(item => item.id === action.backgroundObject.id)) {
+                return state;
+            }
+            else {
+                return [...state, {...action.backgroundObject, isVisible:false}];
+            }
 
         case types.REMOVE_BACKGROUND:
             return state.filter(item => item.id !== action.id );

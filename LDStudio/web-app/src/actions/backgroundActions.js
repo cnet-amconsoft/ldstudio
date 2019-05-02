@@ -52,10 +52,12 @@ export const startRefresh = (backgroundObject) => (dispatch) => {
     dispatch(addBackground(backgroundObject));
 };
 
-export const endRefresh = (nextId, currentId) => (dispatch) => {
+export const endRefresh = (currentId, nextId) => (dispatch) => {
     dispatch(endChange());
-    dispatch(toggleBackground(nextId));
-    delay(() => dispatch(removeBackground(currentId)), backgroundAnimationDuration)
+    if (currentId && nextId) {
+        dispatch(toggleBackground(nextId));
+        delay(() => dispatch(removeBackground(currentId)), backgroundAnimationDuration)
+    }
 };
 
 
