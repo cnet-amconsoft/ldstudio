@@ -1,29 +1,30 @@
-import store from "extensions/createStore";
-import {connect} from "react-redux";
+import { initial, last }      from "lodash";
+import store        from "extensions/createStore";
+import {connect}    from "react-redux";
 
-import BackgroundComponent from './../components/background';
-import * as actions from '../actions/backgroundActions'
+import BackgroundComponent  from './../components/background';
+import * as actions         from '../actions/backgroundActions'
 
 export const backgroundRefresh = (nextBackgroundId) => {
     const dispatch = (action) => store.dispatch(action),
-          state = store.getState();
+          state = store.getState(),
+          background = state.listOfBackgrounds.find(background => background.id === nextBackgroundId);
 
-    const background = state.listOfBackgrounds.find(background => background.id === nextBackgroundId);
-
+    if (state.isChanging) return;
     return dispatch(actions.startRefresh(background));
 };
 
 const getIdOrder = () => {
-    const state = store.getState();
+    const state = store.getState(),
+          order = state.orderOfBackgrounds;
 
-    if (state.orderOfBackgrounds.length > 1) {
-        const currentId = state.orderOfBackgrounds[0].id,
-              nextId = state.orderOfBackgrounds[1].id;
+    if (order.length > 1) {
+        const currentIds = initial(order).map(i => i.id),
+              nextId = last(order).id;
 
-        return [currentId, nextId];
+        return [currentIds, nextId];
     }
     return [null, null]
-
 };
 
 const mapStateToProps = (state) => ({

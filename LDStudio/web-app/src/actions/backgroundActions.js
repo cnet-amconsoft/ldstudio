@@ -9,7 +9,7 @@ export const addBackground = (backgroundObject) => ({
     backgroundObject,
 });
 
-export const removeBackground = (id) => ({
+export const removeBackgrounds = (id) => ({
     type: types.REMOVE_BACKGROUND,
     id,
 });
@@ -52,11 +52,11 @@ export const startRefresh = (backgroundObject) => (dispatch) => {
     dispatch(addBackground(backgroundObject));
 };
 
-export const endRefresh = (currentId, nextId) => (dispatch) => {
+export const endRefresh = (currentIds, nextId) => (dispatch) => {
     dispatch(endChange());
-    if (currentId && nextId) {
+    if (currentIds && nextId) {
         dispatch(toggleBackground(nextId));
-        delay(() => dispatch(removeBackground(currentId)), backgroundAnimationDuration)
+        delay(() => dispatch(removeBackgrounds(currentIds)), backgroundAnimationDuration)
     }
 };
 

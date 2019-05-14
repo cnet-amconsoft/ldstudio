@@ -16,7 +16,6 @@ export function isChanging (state=false, action) {
 
 export function listOfBackgrounds (state=[], action) {
     switch (action.type) {
-
         case types.SET_BACKGROUND_LIST:
             return action.backgrounds;
 
@@ -37,7 +36,7 @@ export function orderOfBackgrounds (state=[], action) {
             }
 
         case types.REMOVE_BACKGROUND:
-            return state.filter(item => item.id !== action.id );
+            return state.filter(item => !action.id.includes(item.id) );
 
         case types.TOGGLE_BACKGROUND:
             return state.map(item => {

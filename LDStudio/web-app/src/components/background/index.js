@@ -22,7 +22,6 @@ class BackgroundComponent extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         const {isChanging, endRefresh} = this.props;
-
         if (isChanging) endRefresh()
     }
 
