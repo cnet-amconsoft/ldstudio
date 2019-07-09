@@ -1,17 +1,18 @@
 import React, {Component}   from 'react';
 import PropTypes            from 'prop-types'
-import { styled }           from '@material-ui/styles';
+import { withStyles }           from '@material-ui/styles';
 
 import BackgroundElement    from './BackgroundElement';
 
-const Background = styled(BackgroundElement)({
+const styles = {
     root: {
         height: '100vh',
+        overflowX: 'hidden',
         position: 'fixed',
         width: '100vw',
         zIndex: -1,
     }
-});
+};
 
 class BackgroundComponent extends Component {
     static propTypes = {
@@ -26,16 +27,16 @@ class BackgroundComponent extends Component {
     }
 
     render() {
-        const {backgroundList} = this.props;
+        const {classes, backgroundList} = this.props;
 
         return (
-            <div>
+            <div className={classes.root}>
                 {backgroundList.map(background => (
-                    <Background  background={background.value} key={background.id} visible={background.isVisible} />
+                    <BackgroundElement  background={background.value} key={background.id} visible={background.isVisible} />
                 ))}
             </div>
         );
     }
 }
 
-export default BackgroundComponent;
+export default withStyles(styles)(BackgroundComponent);

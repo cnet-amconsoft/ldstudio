@@ -8,6 +8,7 @@
     "@material-ui/styles": "^3.0.0-alpha.10",
     "babel-polyfill": "^6.26.0",
     "core-js": "3",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "json5": "^2.1.0",
     "lodash": "^4.17.11",
     "prop-types": "latest",

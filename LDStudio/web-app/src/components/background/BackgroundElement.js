@@ -5,6 +5,8 @@ import {backgroundAnimationDuration} from 'config'
 
 const useStyles = makeStyles({
     root: {
+        backgroundPosition: 'center top !important',
+        backgroundSize: 'cover !important',
         height: '100%',
         opacity: 0,
         position: 'absolute',
@@ -20,13 +22,17 @@ const useStyles = makeStyles({
 
 export default function BackgroundElement(props) {
     const backgroundItem = useRef(null),
-        classes = useStyles(),
-        {background, visible} = props;
+        classes = useStyles();
+    let {background, visible} = props;
 
     useEffect(() => {
         const classList = backgroundItem.current.classList;
         visible ? classList.add([classes.active]) : classList.remove([classes.active]);
     });
+
+    if (!background.startsWith('#')){
+        background = `url(${background})`
+    }
 
     return (
         <div className={classes.root} ref={backgroundItem} style={{background: background}} />

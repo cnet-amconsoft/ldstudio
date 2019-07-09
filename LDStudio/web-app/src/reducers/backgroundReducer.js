@@ -1,4 +1,6 @@
-import * as types from './../actions/actionTypes'
+import path from 'path';
+
+import * as types from './../actions/actionTypes';
 
 export function isChanging (state=false, action) {
     switch (action.type) {
@@ -14,11 +16,24 @@ export function isChanging (state=false, action) {
     }
 }
 
+/**
+ * @summary Sets a new background list to Redux Store.
+ * @param {Array} state The slice of Redux Store which declaration the list of backgrounds.
+ * @param {object} action The object of dispatched action.
+ * @returns {Array} A new slice of Redux Store which declaration the list of backgrounds.
+ */
 export function listOfBackgrounds (state=[], action) {
+
     switch (action.type) {
         case types.SET_BACKGROUND_LIST:
-            return action.backgrounds;
-
+            // Maps current backgrounds to modify the image paths.
+            return action.backgrounds.map((item) => {
+                if (!item.value.startsWith('#')){
+                    item.value = path.join(process.env.PUBLIC_URL, 'media', item.value);
+                }
+                return item;
+            });
+            //return  action.backgrounds;
         default:
             return state;
     }
