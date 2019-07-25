@@ -1,6 +1,7 @@
-import * as types   from './../actions/actionTypes';
-import delay        from 'lodash/delay';
+import * as types from './../actions/actionTypes';
+import delay from 'lodash/delay';
 import {backgroundAnimationDuration} from 'config';
+import imagePreloader from "../extensions/imagePreloader";
 
 /*====== Background order actions ======*/
 
@@ -42,7 +43,10 @@ export const fetchBackgrounds = () => (dispatch) => (
     new Promise((resolve) => {
         resolve(require('backgrounds.json'));
     }).then(
-        (backgroundData) => dispatch(setBackgroundList(backgroundData)),
+        (backgroundData) => {
+            dispatch(setBackgroundList(backgroundData));
+            imagePreloader(backgroundData);
+        },
         (error) => console.log(error)
     )
 );

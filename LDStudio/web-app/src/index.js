@@ -3,7 +3,6 @@ import 'babel-polyfill';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import imagePreloader from 'extensions/imagePreloader'
 import {fetchBackgrounds} from 'actions/backgroundActions';
 import { Provider } from 'react-redux';
 
@@ -14,11 +13,6 @@ import './index.css';
 
 // Get background list.
 store.dispatch(fetchBackgrounds());
-
-// Preloading backgrounds.
-const state = store.getState();
-const backgrounds = state.listOfBackgrounds.map(item => item.value);
-imagePreloader(backgrounds);
 
 ReactDOM.render(
     <Provider store={store}>

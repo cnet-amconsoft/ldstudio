@@ -1,24 +1,32 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import Background from '../containers/BackgroundContainer';
 import Button from '@material-ui/core/Button';
 import FullScreenContainer from './FullScreenComponent';
 import Header from './header';
+import ScrollContainer from './ScrollComponent';
 
 import {backgroundRefresh} from 'containers/BackgroundContainer'
 import {styled} from "@material-ui/styles";
 import bcg from 'backgrounds.json';
+import ViewportComponent from "./ViewportComponent";
 
 export const App = props => {
     return (
         <div>
-            <Background />
-            <Header/>
-            {bcg.map(i => (
-                <MyButton onClick={() => backgroundRefresh(i.id)} style={{background: i.value}}>{i.id}</MyButton>
-            ))}
-            <FullScreenContainer/>
-            <FullScreenContainer/>
+            <ScrollContainer>
+                <Background />
+                <Header/>
+                {bcg.map(i => (
+                    <MyButton onClick={() => backgroundRefresh(i.id)} style={{background: i.value}}>{i.id}</MyButton>
+                ))}
+                <FullScreenContainer/>
+                <ViewportComponent onEnterViewport={()=>console.log('enter')} onLeaveViewport={()=>console.log('leave')}>
+                    <FullScreenContainer>
+                        <div style={{background: 'linear-gradient(to bottom, red 0%, green 100%)', height: '2000px'}} />
+                    </FullScreenContainer>
+                </ViewportComponent>
+            </ScrollContainer>
         </div>
     )
 };

@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import {string, bool} from "prop-types";
+import {string, bool, func} from "prop-types";
 import { makeStyles } from '@material-ui/styles';
 import {backgroundAnimationDuration} from 'config'
 
@@ -20,26 +20,30 @@ const useStyles = makeStyles({
     }
 });
 
-export default function BackgroundElement(props) {
-    const backgroundItem = useRef(null),
+const BackgroundElement = (props) => {
+    const ref = useRef(null),
         classes = useStyles();
-    let {background, visible} = props;
+    let {background, loaded, visible} = props;
 
     useEffect(() => {
-        const classList = backgroundItem.current.classList;
+        const classList = ref.current.classList;
         visible ? classList.add([classes.active]) : classList.remove([classes.active]);
     });
+
 
     if (!background.startsWith('#')){
         background = `url(${background})`
     }
 
     return (
-        <div className={classes.root} ref={backgroundItem} style={{background: background}} />
+        <div className={classes.root} ref={ref} style={{background: background}} />
     );
-}
+};
 
 BackgroundElement.propTypes = {
     background: string.isRequired,
+    loaded: func.isRequired,
     visible: bool,
 };
+
+export default BackgroundElement;

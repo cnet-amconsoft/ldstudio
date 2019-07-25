@@ -1,4 +1,4 @@
-import React            from 'react';
+import React from 'react';
 import PropTypes        from 'prop-types';
 import { withStyles }   from '@material-ui/styles';
 
@@ -15,10 +15,15 @@ const styles = {
 
 /*------ COMPONENT ------*/
 const FullScreenComponent = (props) => {
-    const {background, children, classes, zIndex} = props;
+    const {
+        background,
+        children,
+        classes,
+        zIndex
+    } = props;
 
     return (
-        <div className={classes.root} style={{background: background, zIndex: zIndex}} onWheel={()=>console.log('*********mouse wheel*********')}>
+        <div className={classes.root} style={{background: background, zIndex: zIndex}}>
             {children}
         </div>
     );
@@ -27,7 +32,10 @@ const FullScreenComponent = (props) => {
 
 /*------ PROPTYPES ------*/
 FullScreenComponent.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.element)
+    children: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.arrayOf(PropTypes.element),
+    ])
 };
 
 export default withStyles(styles)(FullScreenComponent);
