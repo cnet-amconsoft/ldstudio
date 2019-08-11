@@ -1,52 +1,45 @@
 import React, {Component} from 'react';
-import {object} from 'prop-types';
+import {object, string} from 'prop-types';
 
 import SocialContainer from './SocialContainer'
 import {Facebook, Insta, YouTube} from './SocialIcons';
 import { withStyles } from '@material-ui/core/styles';
 
 
-
 const styles = theme => ({
     root: {
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'flex-end',
+        alignItems: 'center',
+        marginLeft: theme.spacing(-1),
+        marginRight: theme.spacing(-1),
+        '& svg': {
+            cursor: 'pointer',
+            display: 'block',
+            height: '1.8rem',
+            marginLeft: theme.spacing(1),
+            marginRight: theme.spacing(1),
+            padding: theme.spacing(0.5),
+            width: '1.8rem',
+        },
     },
-    icon: {
-        cursor: 'pointer',
-        display: 'block',
-        height: '1.8rem',
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        padding: '.1rem',
-        width: '1.8rem',
-    }
 });
 
-class SvgIcons extends Component {
-    static propTypes = {
-        classes: object.isRequired,
-    };
+const SvgIcons = ({classes, className}) => {
+    return (
+        <div className={classes.root +' ' + className}>
+            <SocialContainer>
+                <Insta href='insta' />
+                <Facebook href="facebook" />
+                <YouTube href="#" />
+            </SocialContainer>
+        </div>
+    );
+};
 
-    componentDidMount() {
-        for (let child of this.iconContainer.querySelectorAll('svg')) {
-            child.classList.add(this.props.classes.icon)
-        }
-    }
+SvgIcons.propTypes = {
+    classes: object.isRequired,
+    className: string,
+};
 
-    render() {
-        const {classes} = this.props;
-        return (
-            <div className={classes.root} ref={node => this.iconContainer = node}>
-                <SocialContainer>
-                    <Insta href='insta' />
-                    <Facebook href="facebook" />
-                    <YouTube href="#" />
-                </SocialContainer>
-            </div>
-        );
-    }
-}
-
-export default withStyles(styles)(SvgIcons);
+export default withStyles(styles, {withTheme: true})(SvgIcons);

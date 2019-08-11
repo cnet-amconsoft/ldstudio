@@ -8,7 +8,6 @@ const styles = {
         height: '100vh',
         overflowX: 'hidden',
         position: 'relative',
-        width: '100vw',
         zIndex: 0,
     }
 };

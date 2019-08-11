@@ -8,8 +8,6 @@ function preloadImages(array) {
     for (let i = 0; i < array.length; i++) {
         let img = new Image();
         img.onload = function() {
-            console.log('images loaded');
-
             var index = list.indexOf(this);
             if (index !== -1) {
                 // remove image from the array once it's loaded

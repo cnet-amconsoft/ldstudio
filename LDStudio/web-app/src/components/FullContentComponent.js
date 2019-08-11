@@ -7,7 +7,6 @@ const useStyles = makeStyles({
     root: {
         overflowX: 'hidden',
         position: 'relative',
-        width: '100vw',
         zIndex: 0,
     }
 });

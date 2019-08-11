@@ -1,9 +1,7 @@
 import React        from 'react';
 import PropTypes    from 'prop-types';
 
-export default function SocialContainer(props) {
-    const {children} = props;
-
+const SocialContainer = ({children}) => {
     return (
         <React.Fragment>
             {React.Children.map(children, (child) => {
@@ -15,9 +13,10 @@ export default function SocialContainer(props) {
             })}
         </React.Fragment>
     )
-}
-
+};
 
 SocialContainer.propTypes = {
     children: PropTypes.arrayOf(PropTypes.element).isRequired,         // SocialLink elements
 };
+
+export default SocialContainer;

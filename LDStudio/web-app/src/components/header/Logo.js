@@ -1,27 +1,24 @@
 import React from 'react';
-import {object} from 'prop-types';
+import {object, string} from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
-Logo.propTypes = {
-    classes: object.isRequired,
-};
 
 const styles = theme => ({
     logo: {
-        paddingBottom: theme.spacing.unit,
-        paddingTop: theme.spacing.unit,
+        paddingBottom: theme.spacing(1.5),
+        paddingTop: theme.spacing(1.5),
         width: '8.75rem',
         '& svg': {
             display: 'block',
-        }
+        },
+        zIndex: theme.zIndex.appBar,
     }
 });
 
-function Logo(props) {
-    const {classes, href} = props;
+const Logo = props => {
+    const {classes, className, href} = props;
 
     return (
-        <div id={'logo'} className={classes.logo}>
+        <div id={'logo'} className={classes.logo + ' ' + className}>
             <a href={href}>
                 <svg viewBox="0 0 141 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M126.362 42.8541C127.747 42.3056 129.123 41.2773 130.347 40.1092C131.213 39.2818 131.972 38.6826 132.722 37.7983C135.258 34.8083 136.778 33.263 138.39 29.4883C142.052 20.917 140.5 12.5 131.092 6.06738C121.684 -0.365233 105.693 -0.113869 94.9164 2.44357C88.3331 4.0062 78.6357 9.94716 76.0679 11.9736C73.5 14.0001 71 16 68.5 18.5C65 16 60 13.0001 57 11.5001C54 10.0001 47.0864 6.44382 39.5095 4.36496C29.7226 1.67997 16.9067 1.68265 8.42222 6.99733C3.38714 10.1513 0 14.165 0 21.1636C0 34.1027 11.6742 41.6526 25.5003 41.6526C36.2018 41.6526 45.331 39.1489 53.809 33.5703L60.4115 28.7442C62.9878 26.7015 67.4116 22.7046 68.5 21.5C69.7848 22.5539 75.5794 26.6776 78 28.5C80.4206 30.3225 90.152 38.4744 90.152 38.4744C90.2562 38.1171 90.4332 37.7649 90.561 37.4046C90.561 37.4046 84 31 80.5 28C77 25 71.1502 20.7272 70 20C73.5 17 81.0496 11.3805 85.1161 9.45567C90.4532 6.92935 97.532 3.50005 105.5 3.50005C109.368 3.50005 113.245 3.48574 116.5 4C121.1 4.72666 124.605 6.14495 126.362 6.99733C131.092 9.29247 133.167 11.5001 135.5 15.0001C136.5 16.5001 138 19.5 138 23C138 25 137.054 30.2761 133.775 34.889C132.851 36.1892 129.894 39.1377 127.772 41.4671C125.576 43.007 125.58 43.3196 126.362 42.8541ZM4.33343 29.7572C9.18659 36.447 17.1053 38.4003 26.1898 38.4003C36.0968 38.4003 43.6232 36.0575 50.0775 32.6503C54.8815 30.1148 62.5 23.5 66.5 20C59.5402 15.3121 48.0486 10.2249 41 8.00005C33.8525 5.74374 29 5.50005 21.9527 5.97046C14.9053 6.44088 2.07101 12.5755 2.07101 21.1636C2.07101 24.7532 2.1844 26.7948 4.33343 29.7572Z" fill="url(#paint0_linear)"/>
@@ -45,6 +42,11 @@ function Logo(props) {
             </a>
         </div>
     );
-}
+};
 
-export default withStyles(styles)(Logo);
+Logo.propTypes = {
+    classes: object.isRequired,
+    className: string,
+};
+
+export default withStyles(styles,{withTheme: true})(Logo);

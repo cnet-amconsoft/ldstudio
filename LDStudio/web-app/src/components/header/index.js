@@ -5,13 +5,21 @@ import './../App.css'
 
 import Logo from './Logo';
 import NavLinks from './NavLinks';
+import Container from "@material-ui/core/Container";
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
 
 const styles = theme => ({
     root: {
         backgroundColor: 'black',
         position: 'fixed',
         width: '100vw',
-    }
+        zIndex: theme.zIndex.appBar,
+    },
+    grid: {
+        display: 'flex',
+        justifyContent: 'space-between'
+    },
 });
 
 function Header(props) {
@@ -19,26 +27,16 @@ function Header(props) {
 
     return (
         <header id={'header'} className={classes.root}>
-            <nav>
-                <Grid container justify='center' >
-                    <Grid
-                        className={'App-container'}
-                        item
-                        xs
-                    >
-                        <Grid container justify="space-between" alignItems="center">
-                            <Grid item >
-                                <Logo href='/' />
-                            </Grid>
-                            <Grid item >
-                                <NavLinks/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </nav>
+            <Container maxWidth={"lg"}>
+                <nav>
+                    <div className={classes.grid}>
+                        <Logo href='/' />
+                        <NavLinks/>
+                    </div>
+                </nav>
+            </Container>
         </header>
     );
 }
 
-export default withStyles(styles)(Header);
+export default withStyles(styles, {withTheme: true})(Header);

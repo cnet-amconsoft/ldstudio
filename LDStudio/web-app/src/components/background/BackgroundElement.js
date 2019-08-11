@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 const BackgroundElement = (props) => {
     const ref = useRef(null),
         classes = useStyles();
-    let {background, loaded, visible} = props;
+    let {background, visible} = props;
 
     useEffect(() => {
         const classList = ref.current.classList;
@@ -42,7 +42,6 @@ const BackgroundElement = (props) => {
 
 BackgroundElement.propTypes = {
     background: string.isRequired,
-    loaded: func.isRequired,
     visible: bool,
 };
 
