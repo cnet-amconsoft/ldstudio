@@ -1,3 +1,5 @@
+import 'intersection-observer';
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import handleViewport from 'react-in-viewport';

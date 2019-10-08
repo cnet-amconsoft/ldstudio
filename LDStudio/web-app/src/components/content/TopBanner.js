@@ -1,6 +1,7 @@
 import React            from 'react';
 import PropTypes        from 'prop-types';
 import { withStyles }   from "@material-ui/styles";
+
 import * as LDS from "../LDS";
 
 
@@ -41,6 +42,7 @@ const styles = theme => ({
 
 const TopBanner = props => {
     const { classes } = props;
+    let parralax
 
     return (
         <div className={classes.root}>
@@ -57,4 +59,4 @@ TopBanner.propTypes = {
 
 };
 
-export default withStyles(styles, {withTheme: true})(TopBanner);
+export default withStyles(styles)(TopBanner);

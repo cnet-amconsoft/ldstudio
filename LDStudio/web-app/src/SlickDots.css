@@ -1,0 +1,72 @@
+/* Dots */
+.slick-dotted.slick-slider
+{
+    margin-bottom: 30px;
+}
+
+.slick-dots
+{
+    bottom: unset;
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    list-style: none;
+    text-align: center;
+}
+.slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+.slick-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.slick-dots li button:before
+{
+    all: unset;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='7.86011' r='4' fill='white' fill-opacity='0.5'/%3e%3c/svg%3e ");
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    content: '•';
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before
+{
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='8' fill='%23DEAF38' fill-opacity='0.5'/%3e%3cpath d='M14.4 7.99998C14.4 11.5346 11.5346 14.4 7.99998 14.4C4.46535 14.4 1.59998 11.5346 1.59998 7.99998C1.59998 4.46535 4.46535 1.59998 7.99998 1.59998C11.5346 1.59998 14.4 4.46535 14.4 7.99998Z' fill='%234F4F4F'/%3e%3ccircle cx='8' cy='7.86011' r='4' fill='%23DEAF38'/%3e%3c/svg%3e ");
+}

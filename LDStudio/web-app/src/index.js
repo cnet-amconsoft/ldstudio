@@ -1,4 +1,3 @@
-import 'extensions/bootstrap';
 import 'babel-polyfill';
 
 import React from 'react';

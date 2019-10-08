@@ -52,16 +52,16 @@ export const fetchBackgrounds = () => (dispatch) => (
 );
 
 export const startRefresh = (backgroundObject) => (dispatch) => {
-    dispatch(startChange());
     dispatch(addBackground(backgroundObject));
+    dispatch(startChange());
 };
 
 export const endRefresh = (currentIds, nextId) => (dispatch) => {
-    dispatch(endChange());
     if (currentIds && nextId) {
         dispatch(toggleBackground(nextId));
         delay(() => dispatch(removeBackgrounds(currentIds)), backgroundAnimationDuration)
     }
+    dispatch(endChange());
 };
 
 

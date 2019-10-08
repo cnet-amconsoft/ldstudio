@@ -1,22 +1,24 @@
 import React, {useEffect, useRef} from 'react';
-import {string, bool, func} from "prop-types";
+import {string, bool} from "prop-types";
+import {fadeIn} from "react-animations";
 import { makeStyles } from '@material-ui/styles';
-import {backgroundAnimationDuration} from 'config'
+import {backgroundAnimationDuration} from 'config';
 
 const useStyles = makeStyles({
+    '@keyframes fadeIn': fadeIn,
     root: {
+        animationDuration: backgroundAnimationDuration,
+        animationFillMode: 'forwards',
         backgroundPosition: 'center top !important',
         backgroundSize: 'cover !important',
         height: '100%',
-        opacity: 0,
         position: 'absolute',
+        opacity: 0,
         top: 0,
-        transitionDuration: `${backgroundAnimationDuration}ms`,
-        transitionProperty: 'opacity',
         width: '100%',
     },
     active: {
-        opacity: 1,
+        animationName: '$fadeIn'
     }
 });
 
