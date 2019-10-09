@@ -1,12 +1,12 @@
-import { initial, last }      from "lodash";
-import store        from "extensions/createStore";
-import {connect}    from "react-redux";
+import { initial, last }    from "lodash";
+import store                from "extensions/createStore";
+import {connect}            from "react-redux";
 
 import BackgroundComponent  from './../components/background';
 import * as actions         from '../actions/backgroundActions'
 
 export const backgroundRefresh = (nextBackgroundId) => {
-    const dispatch = (action) => store.dispatch(action),
+    const dispatch = action => store.dispatch(action),
           state = store.getState(),
           background = state.listOfBackgrounds.find(background => background.id === nextBackgroundId);
 

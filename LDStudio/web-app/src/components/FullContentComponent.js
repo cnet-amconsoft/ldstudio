@@ -5,7 +5,7 @@ import { makeStyles }   from '@material-ui/styles';
 
 const useStyles = makeStyles({
     root: {
-        overflowX: 'hidden',
+        // overflowX: 'hidden',
         position: 'relative',
         zIndex: 0,
     }

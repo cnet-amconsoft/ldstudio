@@ -2,47 +2,33 @@ import React from "react";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Slick from "react-slick";
-import { withStyles, useTheme }   from "@material-ui/styles";
+import { withStyles }   from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
-
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../../SlickDots.css";
+import "../SlickDots.css";
 
 const styles = theme => ({
     title: {
         color: theme.palette.text.secondary,
     },
     body: {
+        marginTop: theme.spacing(5),
         color: theme.palette.text.secondary,
-    },
-    slickDots: {
-        position: 'relative',
-        bottom: 'unset',
     }
 });
-
-const slickSettings = {
-    arrows: false,
-    dots: true,
-    fade: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-};
 
 const MainCarousel = props => {
     const {classes} = props;
     const slickSettings = {
         arrows: false,
+        autoplay: true,
+        autoplaySpeed: 8000,
         dots: true,
         fade: true,
         infinite: true,
-        speed: 1000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        speed: 300,
     };
 
     return(
@@ -72,7 +58,7 @@ const MainCarousel = props => {
 };
 
 MainCarousel.propTypes = {
-
+    classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(MainCarousel)
