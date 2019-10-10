@@ -1,16 +1,19 @@
-import React        from 'react';
+import React, {Children} from 'react';
 import PropTypes    from 'prop-types';
+import {Grid, IconButton } from "@material-ui/core";
 
 const SocialContainer = ({children}) => {
     return (
         <React.Fragment>
-            {React.Children.map(children, (child) => {
-                return (
-                    <a href={child.props.href}>
-                        {child}
-                    </a>
-                )
-            })}
+            <Grid container spacing={1} >
+                {Children.map(children, (child) => (
+                    <Grid item>
+                        <IconButton color="secondary" href={child.props.href}>
+                            {child}
+                        </IconButton>
+                    </Grid>
+                ))}
+            </Grid>
         </React.Fragment>
     )
 };

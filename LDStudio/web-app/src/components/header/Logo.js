@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
     logo: {
         paddingBottom: theme.spacing(1.5),
-        paddingTop: theme.spacing(1.5),
+        paddingTop: theme.spacing(3),
         width: '8.75rem',
         '& svg': {
             display: 'block',

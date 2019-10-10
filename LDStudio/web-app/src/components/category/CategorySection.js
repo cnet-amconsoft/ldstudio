@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Children} from "react";
 import PropTypes from "prop-types";
 
 import {
@@ -6,7 +6,6 @@ import {
     Typography,
     withStyles
     } from "@material-ui/core";
-import Separator from "./Separator";
 
 const styles = theme => ({
     title: {
@@ -22,8 +21,7 @@ const CategorySection = ({children, classes, name}) => (
                 {name}
             </Typography>
         </Grid>
-        {/*<Separator spacing={2}/>*/}
-        {children.map((value, index) => (
+        {Children.map(children, (value, index) => (
             <Grid item xs={12} md={6} lg={4} container>
                 {value}
             </Grid>

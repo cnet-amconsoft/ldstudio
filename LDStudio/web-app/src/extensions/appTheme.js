@@ -1,4 +1,5 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import {yellow} from "@material-ui/core/colors";
 
 let theme = createMuiTheme({
     spacing: factor => `${0.25 * factor}rem`,
@@ -11,17 +12,11 @@ let theme = createMuiTheme({
     },
     palette: {
         primary: {
-            light: '#555555',
-            main: '#333333',
-            dark: '#111111',
-            contrastText: 'rgba(255,255,255,0.54)',
+            light: '#ffffff',
+            main: '#eeeeee',
+            dark: '#bcbcbc',
         },
-        secondary: {
-            light: '#decd55',
-            main: '#DEAF38',
-            dark: '#ae822e',
-            contrastText: '#444444'
-        },
+        secondary: yellow,
         text:{
             primary:    'rgba(255,255,255,0.87)',
             secondary:  'rgba(255,255,255,0.54)',
