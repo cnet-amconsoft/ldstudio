@@ -1,7 +1,7 @@
-import React                from "react";
+import React, {Fragment} from "react";
 import {Container}          from "@material-ui/core";
 
-import Background           from "../containers/BackgroundContainer";
+import Background, {backgroundRefresh} from "../containers/BackgroundContainer";
 import FullScreenComponent  from "./FullScreenComponent";
 import Header               from "./header";
 import MainCarousel         from "./MainCarousel";
@@ -10,7 +10,6 @@ import ViewportComponent    from "./ViewportComponent";
 import {ThemeProvider}      from "@material-ui/styles";
 
 import theme                from "../extensions/appTheme";
-import {backgroundRefresh}  from "containers/BackgroundContainer"
 import FullContentComponent from "./FullContentComponent";
 import Separator from "./Separator";
 import CategorySection from "./category/CategorySection";
@@ -34,10 +33,12 @@ export const App = props => {
                 <FullScreenComponent>
                     <ViewportComponent
                         onEnterViewport={()=>backgroundRefresh("bcg--1")}
-                        options={{threshold: 0.1}}
+                        options={{threshold: 0.25}}
                     >
-                        <Separator spacing={30}/>
-                        <MainCarousel/>
+                        <Fragment>
+                            <Separator spacing={30}/>
+                            <MainCarousel/>
+                        </Fragment>
                     </ViewportComponent>
                 </FullScreenComponent>
                 <ViewportComponent

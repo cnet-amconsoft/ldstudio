@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes        from 'prop-types';
 import { withStyles }   from '@material-ui/styles';
+import clsx from 'clsx';
 
 /*------ STYLES ------*/
 const styles = {
@@ -17,12 +18,13 @@ const FullScreenComponent = (props) => {
     const {
         background,
         children,
+        className,
         classes,
         zIndex
     } = props;
 
     return (
-        <div className={classes.root} style={{background: background, zIndex: zIndex}}>
+        <div className={clsx(classes.root, className)} style={{background: background, zIndex: zIndex}}>
             {children}
         </div>
     );
@@ -34,7 +36,8 @@ FullScreenComponent.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.object,
         PropTypes.arrayOf(PropTypes.element),
-    ])
+    ]),
+    className: PropTypes.string,
 };
 
 export default withStyles(styles)(FullScreenComponent);

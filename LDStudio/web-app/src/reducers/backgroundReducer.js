@@ -26,14 +26,7 @@ export function listOfBackgrounds (state=[], action) {
 
     switch (action.type) {
         case types.SET_BACKGROUND_LIST:
-            // Maps current backgrounds to modify the image paths.
-            return action.backgrounds.map((item) => {
-                if (!item.value.startsWith('#')){
-                    item.value = path.join(process.env.PUBLIC_URL, 'media', item.value);
-                }
-                return item;
-            });
-            //return  action.backgrounds;
+            return [...state, ...action.backgrounds];
         default:
             return state;
     }

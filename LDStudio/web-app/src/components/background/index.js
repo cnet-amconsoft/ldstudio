@@ -3,6 +3,7 @@ import PropTypes            from 'prop-types'
 import { withStyles }           from '@material-ui/styles';
 
 import BackgroundElement    from './BackgroundElement';
+import clsx from "clsx";
 
 const styles = {
     root: {
@@ -17,26 +18,32 @@ const styles = {
 class BackgroundComponent extends Component {
     static propTypes = {
         backgroundList:     PropTypes.arrayOf(PropTypes.object).isRequired,
+        className:          PropTypes.object,
         endRefresh:         PropTypes.func.isRequired,
         isChanging:         PropTypes.bool.isRequired,
+        image:              PropTypes.string,
     };
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        const {isChanging, endRefresh} = this.props;
+        const {
+            isChanging,
+            endRefresh
+        } = this.props;
+
         if (isChanging) endRefresh()
     }
 
     render() {
-        const {classes, backgroundList} = this.props;
+        const {classes, className, image, backgroundList} = this.props;
 
         return (
-            <div className={classes.root}>
+            <div className={clsx(classes.root, className)}>
                 {backgroundList.map(background => (
-                    <BackgroundElement  background={background.value} key={background.id} visible={background.isVisible} />
+                    <BackgroundElement  background={image || background.value} key={background.id} visible={background.isVisible} />
                 ))}
             </div>
         );
     }
 }
 
-export default withStyles(styles)(BackgroundComponent);
+export default withStyles(styles,{withTheme: true})(BackgroundComponent);

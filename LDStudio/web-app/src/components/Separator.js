@@ -23,7 +23,7 @@ const Separator = props => {
 };
 
 Separator.propTypes = {
-    className: PropTypes.object,
+    className: PropTypes.string,
     spacing: PropTypes.number.isRequired,
 };
 

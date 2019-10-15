@@ -15,7 +15,7 @@ const styles = theme => ({
 });
 
 const CategorySection = ({children, classes, name}) => (
-    <Grid container spacing={10} justify={'between'}>
+    <Grid container spacing={10} justify={'space-between'}>
         <Grid item xs={12}>
             <Typography className={classes.title} variant={'h5'}>
                 {name}
@@ -30,7 +30,7 @@ const CategorySection = ({children, classes, name}) => (
 );
 
 CategorySection.propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.arrayOf(PropTypes.element).isRequired,
     classes: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
 };

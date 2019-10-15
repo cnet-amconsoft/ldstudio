@@ -1,5 +1,6 @@
-import React, {useEffect, useRef} from 'react';
+import React, {Component, useEffect, useRef} from 'react';
 import {string, bool} from "prop-types";
+
 import {fadeIn} from "react-animations";
 import { makeStyles } from '@material-ui/styles';
 import {backgroundAnimationDuration} from 'config';
@@ -22,7 +23,7 @@ const useStyles = makeStyles({
     }
 });
 
-const BackgroundElement = (props) => {
+const BackgroundElement = props => {
     const ref = useRef(null),
         classes = useStyles();
     let {background, visible} = props;
@@ -32,14 +33,9 @@ const BackgroundElement = (props) => {
         visible ? classList.add([classes.active]) : classList.remove([classes.active]);
     });
 
+    if (!background.startsWith('#')) background = `url(${background})`;
 
-    if (!background.startsWith('#')){
-        background = `url(${background})`
-    }
-
-    return (
-        <div className={classes.root} ref={ref} style={{background: background}} />
-    );
+    return <div className={classes.root} ref={ref} style={{background: background}}/>;
 };
 
 BackgroundElement.propTypes = {

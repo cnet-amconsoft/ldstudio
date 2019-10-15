@@ -11,7 +11,7 @@ export const backgroundRefresh = (nextBackgroundId) => {
           background = state.listOfBackgrounds.find(background => background.id === nextBackgroundId);
 
     if (state.isChanging) return;
-    return dispatch(actions.startRefresh(background));
+    dispatch(actions.startRefresh(background));
 };
 
 const getIdOrder = () => {
@@ -27,13 +27,14 @@ const getIdOrder = () => {
     return [null, null]
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
     backgroundList:     state.orderOfBackgrounds,
     isChanging:         state.isChanging,
+    ownProps
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    endRefresh:   () => dispatch(actions.endRefresh(...getIdOrder()))
+    endRefresh: () => dispatch(actions.endRefresh(...getIdOrder())),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BackgroundComponent)
