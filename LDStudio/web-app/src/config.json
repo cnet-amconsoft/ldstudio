@@ -1,4 +1,5 @@
 {
-  "backgroundAnimationDuration": 300,
-  "infoDialogTimespan": 700
+  "backgroundAnimationDuration": 500,
+  "backgroundAppearanceDelay": 100,
+  "infoDialogTimespan": 500
 }

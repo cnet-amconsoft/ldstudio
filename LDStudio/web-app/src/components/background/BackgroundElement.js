@@ -30,6 +30,7 @@ const BackgroundElement = props => {
 
     useEffect(() => {
         const classList = ref.current.classList;
+
         visible ? classList.add([classes.active]) : classList.remove([classes.active]);
     });
 

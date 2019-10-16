@@ -5,8 +5,10 @@
   "dependencies": {
     "@material-ui/core": "^4.5.0",
     "@material-ui/icons": "^4.4.3",
+    "@material-ui/lab": "^4.0.0-alpha.29",
     "@material-ui/styles": "^4.5.0",
     "babel-polyfill": "^6.26.0",
+    "clsx": "^1.0.4",
     "core-js": "3.2.1",
     "eslint-plugin-react-hooks": "^2.1.2",
     "intersection-observer": "^0.7.0",
@@ -24,8 +26,7 @@
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "slick-carousel": "^1.8.1",
-    "clsx": "^1.0.4"
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

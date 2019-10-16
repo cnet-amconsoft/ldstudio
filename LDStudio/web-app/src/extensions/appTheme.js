@@ -23,7 +23,10 @@ let theme = createMuiTheme({
             disabled:   'rgba(255,255,255,0.38)',
             hint:       'rgba(255,255,255,0.38)',
         },
-        divider:        'rgba(255,255,255,0.12)'
+        divider:        'rgba(255,255,255,0.12)',
+        background: {
+            paper: '#212121'
+        }
     },
     typography: {
         h1: { fontFamily: '"Exo 2"' },

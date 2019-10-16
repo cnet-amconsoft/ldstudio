@@ -18,7 +18,7 @@ const styles = {
 class BackgroundComponent extends Component {
     static propTypes = {
         backgroundList:     PropTypes.arrayOf(PropTypes.object).isRequired,
-        className:          PropTypes.object,
+        className:          PropTypes.string,
         endRefresh:         PropTypes.func.isRequired,
         isChanging:         PropTypes.bool.isRequired,
         image:              PropTypes.string,

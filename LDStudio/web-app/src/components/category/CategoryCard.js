@@ -19,7 +19,7 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Separator from "../Separator";
-import CategoryGallery from "./CategoryGallery";
+import CategoryInfo from "./CategoryInfo";
 
 const styles = theme => ({
     card: {
@@ -174,9 +174,9 @@ const CategoryCard = props => {
                     </ClickAwayListener>
                 </Card>
             </Grid>
-            <CategoryGallery isOpen={isDialogOpen}
-                             image={image}
-                             onClose={() => setDialog(false)} />
+            <CategoryInfo isOpen={isDialogOpen}
+                          image={image}
+                          onClose={() => setDialog(false)} />
         </Fragment>
     )
 };
