@@ -17,7 +17,6 @@ import {
     Typography
     } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Separator from "../Separator";
 import CategoryInfo from "./CategoryInfo";
 

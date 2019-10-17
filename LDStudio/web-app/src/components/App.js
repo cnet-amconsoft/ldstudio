@@ -30,21 +30,16 @@ export const App = props => {
                         <TopBanner/>
                     </FullScreenComponent>
                 </ViewportComponent>
-                <FullScreenComponent>
-                    <ViewportComponent
-                        onEnterViewport={()=>backgroundRefresh("bcg--1")}
-                        options={{threshold: 0.25}}
-                    >
-                        <Fragment>
-                            <Separator spacing={30}/>
-                            <MainCarousel/>
-                        </Fragment>
-                    </ViewportComponent>
-                </FullScreenComponent>
                 <ViewportComponent
-                    onEnterViewport={()=>console.log("Section-1")}
-                    options={{threshold: 1}}
+                    onEnterViewport={()=>backgroundRefresh("bcg--1")}
+                    options={{threshold: 0.1}}
                 >
+                    <FullScreenComponent>
+                            <Fragment>
+                                <Separator spacing={30}/>
+                                <MainCarousel/>
+                            </Fragment>
+                    </FullScreenComponent>
                     <FullContentComponent>
                         <CategorySection name={"светская жизнь"}>
                             <CategoryCard image="/media/1B9A1004-17.png"/>
@@ -53,11 +48,6 @@ export const App = props => {
                         </CategorySection>
                         <Separator spacing={30}/>
                     </FullContentComponent>
-                </ViewportComponent>
-                <ViewportComponent
-                    onEnterViewport={()=>console.log("Section-2")}
-                    options={{threshold: 1}}
-                >
                     <FullContentComponent>
                         <CategorySection name={"светская жизнь"}>
                             <CategoryCard image="/media/1B9A1004-17.png"/>
@@ -66,11 +56,6 @@ export const App = props => {
                         </CategorySection>
                         <Separator spacing={30}/>
                     </FullContentComponent>
-                </ViewportComponent>
-                <ViewportComponent
-                    onEnterViewport={()=>console.log("Section-3")}
-                    options={{threshold: 1}}
-                >
                     <FullContentComponent>
                         <CategorySection name={"светская жизнь"}>
                             <CategoryCard image="/media/1B9A1004-17.png"/>

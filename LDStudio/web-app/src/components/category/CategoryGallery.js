@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment, useEffect} from "react";
 import PropTypes from "prop-types";
 
 import {
@@ -10,8 +10,10 @@ import Skeleton from '@material-ui/lab/Skeleton';
 
 const styles = theme => ({
     gridItem: {
-        background: 'rgba(255, 255, 255, 0.16)',
-        border: '1px solid rgba(255, 255, 255, 0.5)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'top center',
+        border: `1px solid ${theme.palette.grey["500"]}`,
+        borderRadius: theme.shape.borderRadius,
         boxSizing: 'border-box',
         height: '100%',
     },
@@ -19,7 +21,7 @@ const styles = theme => ({
         width: '100%',
     },
     skeleton: {
-        backgroundColor: 'rgba(255,255,255,0.15)',
+        backgroundColor: 'rgba(255,255,255,0.20)',
     }
 });
 
@@ -35,29 +37,64 @@ const SkeletonGenerator = ({amountOfElements, classes}) => {
         const element = (
             <GridListTile cols={1} >
                 <div className={classes.gridItem}>
-                    <Skeleton variant="rect" height="100%" className={classes.skeleton} disableAnimate/>
+                    <Skeleton variant="rect" height="100%" className={classes.skeleton}/>
                 </div>
             </GridListTile>
         );
         collection.push(element);
     }
 
-    return <GridList className={classes.gridList} cols={4} spacing={2}>{collection}</GridList>
+    return <GridList className={classes.gridList} cols={4} spacing={4}>{collection}</GridList>
+};
+
+const ImageListGenerator = ({classes, images, fetching}) => {
+    let collection = [];
+
+    console.log(images, fetching);
+
+    if (images && !fetching) {
+        for (let image of images) {
+            const element = (
+                <GridListTile cols={1} >
+                    <div className={classes.gridItem} style={{backgroundImage: `url(${image})`}} />
+                </GridListTile>
+            );
+            collection.push(element);
+        }
+    }
+
+    return <GridList className={classes.gridList} cols={4} spacing={4}>{collection}</GridList>
 };
 
 const CategoryGallery = props => {
-    const {classes} = props;
+    const {classes, images, fetching, setFetching} = props;
+
+    console.log(fetching);
 
     return (
-        <SkeletonGenerator amountOfElements={12} classes={classes}/>
+        <Fragment>
+            {fetching ? (
+                <SkeletonGenerator amountOfElements={12} classes={classes}/>
+            ) : (
+                <ImageListGenerator {...props} />
+            )}
+        </Fragment>
     )
 };
 
 CategoryGallery.propTypes = {
     classes: PropTypes.object.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    fetching: PropTypes.bool,
+};
+
+ImageListGenerator.propTypes = {
+    classes: PropTypes.object.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 SkeletonGenerator.propTypes = {
+    classes: PropTypes.object.isRequired,
     amountOfElements: PropTypes.number,
 };
 

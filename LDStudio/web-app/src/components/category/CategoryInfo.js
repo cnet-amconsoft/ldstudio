@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
-import Background from "../../containers/BackgroundContainer";
+import React, {useEffect, useState} from 'react';
+import PropTypes            from 'prop-types';
+import Background           from "containers/BackgroundContainer";
 
-import FullScreenComponent from "../FullScreenComponent";
-import { ArrowBackLog, MoreVarnt } from "../CustomIcons";
+import CategoryGallery              from "./CategoryGallery";
+import CardInfoSideBar              from "./CardInfoSideBar";
+import FullScreenComponent          from "components/FullScreenComponent";
+import Separator                    from "components/Separator";
+import { ArrowBackLog, MoreVarnt }  from "components/CustomIcons";
 import {
     withStyles,
     AppBar,
@@ -15,13 +18,12 @@ import {
     Grid,
     IconButton,
     Toolbar,
-    Typography,
+    Typography, ClickAwayListener,
 } from '@material-ui/core';
 
 import {infoDialogTimespan} from 'config';
-import Separator from "../Separator";
-import CategoryGallery from "./CategoryGallery";
-import CardInfoSideBar from "./CardInfoSideBar";
+import bcgs from 'content';
+import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
     fixedContainer: {
@@ -49,7 +51,6 @@ const styles = theme => ({
         }
     },
     title: {
-        //marginLeft: theme.spacing(2),
         flex: 1,
         textTransform: 'uppercase',
     },
@@ -69,13 +70,17 @@ const CategoryInfo = props => {
         image,
         onClose,
         } = props;
-    const [sideBarOpen, setSideBarOpen] = useState(false);
+    let [sideBarOpen, setSideBarOpen] = useState(false);
+    let [fetching, setFetching] = useState(true);
+
+    useEffect(() => {
+        if (isOpen) setTimeout(() => setFetching(false), 2000)
+    });
 
     const handleClose = () => onClose();
-    const toggleSlideBar = open => {
+    const toggleSlideBar = (event, open) => {
         setSideBarOpen(open === undefined ? !sideBarOpen : open);
     };
-
 
     return (
         <Dialog fullScreen
@@ -114,7 +119,7 @@ const CategoryInfo = props => {
                                 </Typography>
                             </Grid>
                             <Separator spacing={25}/>
-                            <CategoryGallery/>
+                            <CategoryGallery images={bcgs.images} fetching={fetching} />
                         </Box>
                     </Container>
                 </Container>

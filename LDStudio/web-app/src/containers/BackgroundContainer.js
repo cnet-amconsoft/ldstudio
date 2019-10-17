@@ -2,8 +2,8 @@ import { initial, last }    from "lodash";
 import store                from "extensions/createStore";
 import {connect}            from "react-redux";
 
-import BackgroundComponent  from './../components/background';
-import * as actions         from '../actions/backgroundActions'
+import BackgroundComponent  from 'components/background';
+import * as actions         from 'actions/backgroundActions'
 
 export const backgroundRefresh = (nextBackgroundId) => {
     const dispatch = action => store.dispatch(action),
